@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free-Steam Official</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#000;
+    color:#fff;
+    font-family:Arial,sans-serif;
+}
+
+header{
+    text-align:center;
+    padding:40px 20px;
+    border-bottom:1px solid #222;
+}
+
+h1{
+    font-size:48px;
+    letter-spacing:3px;
+}
+
+.subtitle{
+    color:#999;
+    margin-top:10px;
+}
+
+.search-container{
+    max-width:800px;
+    margin:30px auto;
+    padding:0 20px;
+}
+
+#search{
+    width:100%;
+    padding:15px;
+    background:#000;
+    border:1px solid #444;
+    color:white;
+    font-size:16px;
+    outline:none;
+}
+
+.games{
+    max-width:800px;
+    margin:auto;
+    padding:20px;
+}
+
+.game{
+    display:flex;
+    gap:20px;
+    align-items:center;
+    padding:20px 0;
+    border-bottom:1px solid #222;
+}
+
+.game img{
+    width:120px;
+    height:60px;
+    object-fit:cover;
+    border:1px solid #333;
+}
+
+.info{
+    flex:1;
+}
+
+.name{
+    font-size:24px;
+    margin-bottom:8px;
+}
+
+.status{
+    color:#888;
+}
+
+.button{
+    display:inline-block;
+    margin-top:10px;
+    padding:8px 12px;
+    border:1px solid white;
+    color:white;
+    text-decoration:none;
+    transition:.2s;
+}
+
+.button:hover{
+    background:white;
+    color:black;
+}
+
+.footer{
+    text-align:center;
+    margin-top:50px;
+    padding:30px;
+    border-top:1px solid #222;
+}
+
+.footer a{
+    color:white;
+}
+
+.rules{
+    max-width:800px;
+    margin:50px auto;
+    padding:20px;
+    border-top:1px solid #222;
+}
+
+.rules h2{
+    margin-bottom:15px;
+}
+
+.rules li{
+    margin-bottom:10px;
+    color:#ccc;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+    <h1>FREE-STEAM</h1>
+    <p class="subtitle">Все бесплатные игры Steam в одном месте</p>
+</header>
+
+<div class="search-container">
+    <input type="text" id="search" placeholder="Поиск игры...">
+</div>
+
+<div class="games" id="games">
+
+    <div class="game">
+        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/570/header.jpg" alt="">
+        <div class="info">
+            <div class="name">Dota 2</div>
+            <div class="status">Бесплатно</div>
+            <a class="button" href="https://store.steampowered.com/app/570/" target="_blank">
+                Открыть в Steam
+            </a>
+        </div>
+    </div>
+
+    <div class="game">
+        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/730/header.jpg" alt="">
+        <div class="info">
+            <div class="name">Counter-Strike 2</div>
+            <div class="status">Бесплатно</div>
+            <a class="button" href="https://store.steampowered.com/app/730/" target="_blank">
+                Открыть в Steam
+            </a>
+        </div>
+    </div>
+
+    <div class="game">
+        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/230410/header.jpg" alt="">
+        <div class="info">
+            <div class="name">Warframe</div>
+            <div class="status">Бесплатно</div>
+            <a class="button" href="https://store.steampowered.com/app/230410/" target="_blank">
+                Открыть в Steam
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<div class="rules">
+    <h2>Условия использования</h2>
+
+    <ul>
+        <li>Мы не являемся официальным сервисом Steam или Valve.</li>
+        <li>Сайт предоставляет информацию о бесплатных играх.</li>
+        <li>Мы не выдаём ключи, промокоды и аккаунты.</li>
+        <li>Запрещено использовать материалы сайта в коммерческих целях без разрешения.</li>
+        <li>Информация может изменяться без уведомления.</li>
+    </ul>
+</div>
+
+<div class="footer">
+    <p>Telegram: @FreeSteamOfficial</p>
+    <br>
+    <p>Free-Steam Official © 2026</p>
+</div>
+
+<script>
+const search = document.getElementById("search");
+
+search.addEventListener("keyup", function() {
+
+    const value = this.value.toLowerCase();
+
+    const games = document.querySelectorAll(".game");
+
+    games.forEach(game => {
+
+        const title = game.querySelector(".name")
+        .textContent
+        .toLowerCase();
+
+        if(title.includes(value)){
+            game.style.display = "flex";
+        } else {
+            game.style.display = "none";
+        }
+
+    });
+
+});
+</script>
+
+</body>
+</html>
