@@ -1,0 +1,26 @@
+fetch("games.json")
+  .then(res => res.json())
+  .then(games => {
+    const container = document.getElementById("games");
+
+    container.innerHTML = "";
+
+    games.forEach(game => {
+      container.innerHTML += `
+        <div class="game">
+          <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/${game.appid}/header.jpg">
+
+          <div class="info">
+            <div class="name">${game.name}</div>
+            <div class="status">Бесплатно</div>
+
+            <a class="button"
+               href="https://store.steampowered.com/app/${game.appid}/"
+               target="_blank">
+               Открыть в Steam
+            </a>
+          </div>
+        </div>
+      `;
+    });
+  });
